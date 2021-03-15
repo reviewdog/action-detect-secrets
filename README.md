@@ -49,7 +49,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: detect-secrets
-      uses: levonet/action-detect-secrets@master
+      uses: reviewdog/action-detect-secrets@master
       with:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review # Change reporter.
