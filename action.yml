@@ -1,0 +1,33 @@
+name: Run detect-secrets with reviewdog
+description: 🐶 Run detect-secrets with reviewdog on pull requests to improve code review experience.
+inputs:
+  github_token:
+    description: GITHUB_TOKEN.
+    required: true
+  name:
+    description: Report name
+    default: detect-secrets
+  workdir:
+    description: "The directory from which to look for and run detect-secrets. Default: '.'"
+    default: "."
+  filter_mode:
+    description: Reviewdog filter mode [added, diff_context, file, nofilter]
+    default: added
+  fail_on_error:
+    description: Whether reviewdog should fail when errors are found. [true,false] - This is useful for failing CI builds.
+    default: "false"
+  level:
+    description: Report level for reviewdog [info,warning,error]
+    default: error
+  reporter:
+    description: |
+      Reporter of reviewdog command [github-pr-check,github-pr-review,github-check].
+      Default is github-pr-check.
+      github-pr-review can use Markdown and add a link to rule page in reviewdog reports.
+    default: 'github-pr-check'
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: shield
+  color: green
