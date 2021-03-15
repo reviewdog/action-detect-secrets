@@ -12,6 +12,7 @@ rdjson = {
     'diagnostics': []
 }
 
+
 def main():
     baseline = json.load(sys.stdin)
     if not baseline['results']:
@@ -46,6 +47,7 @@ def main():
         sys.stderr.write('Error: %s\n' % error)
         return 1
     return 0
+
 
 if __name__ == '__main__':
     sys.exit(main())
