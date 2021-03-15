@@ -26,7 +26,7 @@ def main():
                 results[key]['message'] += '\n* ' + item['type']
             else:
                 results[key] = {
-                    'message': '* ' + item['type'],
+                    'message': '\n* ' + item['type'],
                     'location': {
                         'path': item['filename'],
                         'range': {
