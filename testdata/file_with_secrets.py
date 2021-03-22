@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # Will change this later.
-SUPER_SECRET_VALUES = '60b725f10c9c85c70d97880dfe8191b3', '3b5d5c3712955042212316173ccf37be'
+SUPER_SECRET_VALUES = '60b725f10c9c85c70d97880dfe8191a3', '3b5d5c3712955042212316173ccf37de'
 
 
 def main():
