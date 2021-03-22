@@ -6,7 +6,7 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 detect-secrets --version
 
-detect-secrets scan --all-files --force-use-all-plugins \
+detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} \
     | baseline2rdf \
     | reviewdog -f=rdjson \
         -name="${INPUT_NAME:-detect-secrets}" \
@@ -14,3 +14,4 @@ detect-secrets scan --all-files --force-use-all-plugins \
         -reporter="${INPUT_REPORTER:-github-pr-check}" \
         -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
         -level="${INPUT_LEVEL}" \
+        ${INPUT_REVIEWDOG_FLAGS}

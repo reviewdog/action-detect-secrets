@@ -24,7 +24,13 @@ inputs:
       Reporter of reviewdog command [github-pr-check,github-pr-review,github-check].
       Default is github-pr-check.
       github-pr-review can use Markdown and add a link to rule page in reviewdog reports.
-    default: 'github-pr-check'
+    default: github-pr-check
+  reviewdog_flags:
+    description: Additional reviewdog flags
+    default: ""
+  detect_secrets_flags:
+    description: Flags and args of detect-secrets command. The default is '--all-files --force-use-all-plugins'.
+    default: --all-files --force-use-all-plugins
 runs:
   using: docker
   image: Dockerfile
