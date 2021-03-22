@@ -4,6 +4,8 @@ This action runs [detect-secrets](https://github.com/Yelp/detect-secrets) with
 [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve
 code review experience.
 
+![detect-secrets-1](https://user-images.githubusercontent.com/3680861/112022952-6fcd7800-8b3b-11eb-8973-86a8a747d757.png)
+
 ## Inputs
 
 ### `github_token`
