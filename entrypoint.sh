@@ -8,7 +8,7 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 detect-secrets --version
 
-echo detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS}
+detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS}
 
 detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} \
     | baseline2rdf \
