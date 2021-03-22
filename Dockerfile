@@ -1,11 +1,8 @@
-# syntax=docker/dockerfile:experimental
 FROM python:3.9.2-slim-buster
 
 ENV REVIEWDOG_VERSION=v0.11.0
 
-RUN --mount=type=tmpfs,target=/tmp \
-    --mount=type=tmpfs,target=/var/lib/apt \
-    set -eux \
+RUN set -eux \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
