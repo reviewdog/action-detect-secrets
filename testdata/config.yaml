@@ -1,6 +1,6 @@
 ---
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
 aws_secret_key: 23456789a1
-secret: |
+secret: |  # pragma: allowlist secret
     gX69YO4CvBsVjzAwYxdG
     yDd30t5+9ez31gKATtj4
