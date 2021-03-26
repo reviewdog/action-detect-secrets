@@ -1,12 +1,12 @@
 #!/bin/sh
 
-cd "${GITHUB_WORKSPACE}/${INPUT_WORKDIR}" || exit 1
+cd "${GITHUB_WORKSPACE}" || exit 1
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 detect-secrets --version
 
-detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} \
+detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} ${INPUT_WORKDIR} \
     | baseline2rdf \
     | reviewdog -f=rdjson \
         -name="${INPUT_NAME:-detect-secrets}" \

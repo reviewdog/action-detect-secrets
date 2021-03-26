@@ -65,3 +65,23 @@ jobs:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review # Change reporter.
 ```
+
+## Troubleshooting
+
+### False positives
+
+It is possible to disable detection for individual lines of code in case of false positives.
+To do this, add a comment at the end of the line with text `pragma: allowlist secret`.
+
+```yaml
+public_key: |  # pragma: allowlist secret
+    gX69YO4CvBsVjzAwYxdG
+    yDd30t5+9ez31gKATtj4
+```
+
+Or add a comment with the text `pragma: allowlist nextline secret` before the line.
+
+```ini
+# pragma: allowlist nextline secret
+public_key = gX69YO4CvBsVjzAwYxdG
+```
