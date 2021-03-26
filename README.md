@@ -65,3 +65,11 @@ jobs:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review # Change reporter.
 ```
+
+## Troubleshooting
+
+```yaml
+token: |  # pragma: allowlist secret
+    gX69YO4CvBsVjzAwYxdG
+    yDd30t5+9ez31gKATtj4
+```
