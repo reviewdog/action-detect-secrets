@@ -1,6 +1,6 @@
 FROM python:3.10.2-slim-buster
 
-ENV REVIEWDOG_VERSION=v0.13.1
+ENV REVIEWDOG_VERSION=v0.14.0
 
 RUN set -eux \
     && apt-get update \
