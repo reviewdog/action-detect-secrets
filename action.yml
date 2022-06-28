@@ -2,8 +2,8 @@ name: Run detect-secrets with reviewdog
 description: 🐶 Run detect-secrets with reviewdog on pull requests to improve code review experience.
 inputs:
   github_token:
-    description: GITHUB_TOKEN.
-    required: true
+    description: GITHUB_TOKEN
+    default: ${{ github.token }}
   name:
     description: Report name
     default: detect-secrets
