@@ -62,7 +62,6 @@ jobs:
     - name: detect-secrets
       uses: reviewdog/action-detect-secrets@master
       with:
-        github_token: ${{ secrets.github_token }}
         reporter: github-pr-review # Change reporter.
 ```
 
