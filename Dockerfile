@@ -1,11 +1,10 @@
-FROM python:3.11.0-slim-buster
+FROM python:3.11.0-buster
 
 ENV REVIEWDOG_VERSION=v0.14.1
 
 RUN set -eux \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        gcc \
         git \
         wget \
     && wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} \
