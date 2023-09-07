@@ -1,6 +1,6 @@
 FROM python:3.11.4-buster
 
-ENV REVIEWDOG_VERSION=v0.14.2
+ENV REVIEWDOG_VERSION=v0.15.0
 
 RUN set -eux \
     && apt-get update \
