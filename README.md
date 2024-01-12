@@ -47,6 +47,12 @@ Optional. Additional reviewdog flags.
 Optional. Flags and args of detect-secrets command.
 The default is `--all-files --force-use-all-plugins`.
 
+### `baseline_path`
+
+Optional. The path to provide to `--baseline` argument of detect-secrets command.
+If provided, the baseline file will be updated with newly discovered secrets, otherwise it will be created.
+The default is empty, so baseline created or overwritten.
+
 ## Example usage
 
 ### [.github/workflows/reviewdog.yml](.github/workflows/reviewdog.yml)

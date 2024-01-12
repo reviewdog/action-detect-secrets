@@ -8,8 +8,14 @@ detect-secrets --version
 
 git config --global --add safe.directory /github/workspace
 
-detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} ${INPUT_WORKDIR} \
-    | baseline2rdf \
+if [ -n "${INPUT_BASELINE_PATH}" ]; then
+    # When .secrets.baseline is provided, the file is only updated and not written to stdout
+    detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} --baseline ${INPUT_BASELINE_PATH} ${INPUT_WORKDIR}
+else
+    detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} ${INPUT_WORKDIR} > .secrets.baseline
+fi
+
+echo .secrets.baseline | baseline2rdf \
     | reviewdog -f=rdjson \
         -name="${INPUT_NAME:-detect-secrets}" \
         -filter-mode="${INPUT_FILTER_MODE:-added}" \
