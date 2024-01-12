@@ -11,6 +11,7 @@ git config --global --add safe.directory /github/workspace
 if [ -n "${INPUT_BASELINE_PATH}" ]; then
     # When .secrets.baseline is provided, the file is only updated and not written to stdout
     detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} --baseline ${INPUT_BASELINE_PATH} ${INPUT_WORKDIR}
+    mv ${INPUT_BASELINE_PATH} .secrets.baseline
 else
     detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} ${INPUT_WORKDIR} > .secrets.baseline
 fi
