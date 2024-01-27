@@ -1,0 +1,3 @@
+FROM ghcr.io/jizusun/action-detect-secrets:master
+
+ENTRYPOINT ["/entrypoint.sh"]
