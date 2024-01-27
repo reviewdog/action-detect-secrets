@@ -99,9 +99,16 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
 
+
       # https://docs.docker.com/build/ci/github-actions/multi-platform/
       -
         name: Inspect image
         run: |
           docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
-          docker inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
+          docker buildx inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
+
+      - name: Print Docker metadata 
+        run: |
+          echo "${{ steps.meta.outputs.version }}"
+          echo "${{ steps.meta.outputs.tags}}"
+          echo "${{ steps.meta.outputs.labels}}"
