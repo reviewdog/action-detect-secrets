@@ -6,7 +6,8 @@ RUN set -eux \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
-        wget \
+        wget 
+        gcc \
     && wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} \
     && pip install detect-secrets[word_list] \
     # https://docs.docker.com/develop/develop-images/instructions/#apt-get
