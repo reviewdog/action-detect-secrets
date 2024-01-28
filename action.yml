@@ -36,7 +36,7 @@ inputs:
     default: ""
 runs:
   using: docker
-  image: Dockerfile.action
+  image: docker://ghcr.io/jizusun/action-detect-secrets:master
 branding:
   icon: shield
   color: green
