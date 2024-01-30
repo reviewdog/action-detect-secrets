@@ -103,6 +103,7 @@ jobs:
       # https://docs.docker.com/build/ci/github-actions/multi-platform/
       -
         name: Inspect image
+        if: ${{ github.event_name != 'pull_request' }}
         run: |
           docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
 

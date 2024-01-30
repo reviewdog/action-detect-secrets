@@ -10,8 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: detect-secrets
-      uses: ./
+      # uses: ./
+      uses: docker://ghcr.io/jizusun/action-detect-secrets:master
       with:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review
         workdir: testdata
+        fail_on_error: true
