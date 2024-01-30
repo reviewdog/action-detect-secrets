@@ -8,12 +8,10 @@ ENV REVIEWDOG_VERSION=v0.17.0
 #     && apk del .build-deps
 
 
-RUN set -eux \
-    apk --update add git gcc \
+RUN apk --no-cache add git gcc \
     && which gcc 
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} \
-    && pip install detect-secrets[word_list] \
-    && rm -rf /var/cache/apk/*
+    && pip install detect-secrets[word_list] 
 
 COPY baseline2rdf.py /usr/local/bin/baseline2rdf
 COPY entrypoint.sh /entrypoint.sh
