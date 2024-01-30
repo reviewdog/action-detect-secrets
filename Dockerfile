@@ -10,8 +10,8 @@ ENV REVIEWDOG_VERSION=v0.17.0
 
 RUN set -eux \
     apk --no-cache add git gcc musl-dev \
-    && which gcc \ 
-    && wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} \
+    && which gcc 
+RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} \
     && pip install detect-secrets[word_list] \
     && rm -rf /var/cache/apk/*
 
