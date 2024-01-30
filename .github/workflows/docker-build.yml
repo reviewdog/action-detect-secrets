@@ -106,5 +106,3 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         run: |
           docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
-
-        # docker buildx inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
