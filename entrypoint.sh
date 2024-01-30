@@ -16,7 +16,14 @@ else
     detect-secrets scan ${INPUT_DETECT_SECRETS_FLAGS} ${INPUT_WORKDIR} > /tmp/.secrets.baseline
 fi
 
-cat /tmp/.secrets.baseline | baseline2rdf \
+if [ "${INPUT_SKIP_AUDITED}" = "true" ]; then
+    SKIP_AUDITED_FLAG="--skip-audited"
+fi
+if [ "${INPUT_VERBOSE}" = "true" ]; then
+    VERBOSE_FLAG="--verbose"
+fi
+
+cat /tmp/.secrets.baseline | baseline2rdf ${SKIP_AUDITED_FLAG} ${VERBOSE_FLAG} \
     | reviewdog -f=rdjson \
         -name="${INPUT_NAME:-detect-secrets}" \
         -filter-mode="${INPUT_FILTER_MODE:-added}" \
