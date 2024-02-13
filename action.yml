@@ -31,6 +31,9 @@ inputs:
   detect_secrets_flags:
     description: Flags and args of detect-secrets command. The default is '--all-files --force-use-all-plugins'.
     default: --all-files --force-use-all-plugins
+  detect_secrets_version:
+    description: The detect-secrets version to install. By default will install the latest version.
+    default: ""
   baseline_path:
     description: The baseline path to update. If not provided, a new baseline will be created.
     default: ""
