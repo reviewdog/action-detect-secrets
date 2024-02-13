@@ -46,6 +46,8 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
+  env:
+    INPUT_DETECT_SECRETS_VERSION: ${{ inputs.detect_secrets_version }}
 branding:
   icon: shield
   color: green
