@@ -7,13 +7,8 @@ RUN set -eux \
     && apt-get install -y --no-install-recommends \
         git \
         wget \
-    && wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
-
-RUN if [ -n "$INPUT_DETECT_SECRETS_VERSION" ]; then \
-      pip install detect-secrets[word_list]=="$INPUT_DETECT_SECRETS_VERSION"; \
-    else \ 
-      pip install detect-secrets[word_list]; \
-    fi
+    && wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} \
+    && pip install detect-secrets[word_list]
 
 COPY baseline2rdf.py /usr/local/bin/baseline2rdf
 COPY entrypoint.sh /entrypoint.sh
