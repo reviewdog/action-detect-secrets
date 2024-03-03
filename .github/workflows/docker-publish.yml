@@ -108,9 +108,18 @@ jobs:
           docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
 
         # docker buildx inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}          
+      
 
       - name: Print Docker metadata 
         run: |
           echo "${{ steps.meta.outputs.version }}"
           echo "${{ steps.meta.outputs.tags}}"
           echo "${{ steps.meta.outputs.labels}}"
+
+      - name: PR comment with reactions
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Docker image pushed :wave:
+             "${{ steps.meta.outputs.tags}}"
+          reactions: eyes, rocket
