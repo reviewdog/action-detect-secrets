@@ -75,7 +75,7 @@ jobs:
 
 ### Preventing false positives
 
-Since detect-secrets can report false positives, it is likely that you will have to configure the CLI further using the `detect_secrets_flags` input to avoid this. There are [4 options to ignore potential false positives](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#filters):
+Since detect-secrets can report false positives, it is likely that you will have to configure the CLI further using the `detect_secrets_flags` input to avoid this. There are [4 filtering options to ignore false positives](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#filters):
 
 - [Excluding file paths](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#--exclude-files)
 - [Excluding lines](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#--exclude-lines)
