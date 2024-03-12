@@ -44,8 +44,8 @@ Optional. Additional reviewdog flags.
 
 ### `detect_secrets_flags`
 
-Optional. Flags and args of detect-secrets command.
-The default is `--all-files --force-use-all-plugins`.
+Optional. Flags and args of detect-secrets command. The default is `--all-files --force-use-all-plugins`. 
+This can be used to [exclude paths, secrets or lines to ignore false positives](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#filters).
 
 ### `baseline_path`
 
@@ -71,22 +71,13 @@ jobs:
         reporter: github-pr-review # Change reporter.
 ```
 
-## Troubleshooting
+## Configuration
 
-### False positives
+Since detect-secrets can report false positives, it is likely that you will have to configure the CLI further using the `detect_secrets_flags` input to avoid this. There are [4 options to ignore potential false positives](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#filters):
 
-It is possible to disable detection for individual lines of code in case of false positives.
-To do this, add a comment at the end of the line with text `pragma: allowlist secret`.
+- Excluding file paths
+- Excluding lines
+- Excluding secrets
+- Inlining exclude comments
 
-```yaml
-public_key: |  # pragma: allowlist secret
-    gX69YO4CvBsVjzAwYxdG
-    yDd30t5+9ez31gKATtj4
-```
-
-Or add a comment with the text `pragma: allowlist nextline secret` before the line.
-
-```ini
-# pragma: allowlist nextline secret
-public_key = gX69YO4CvBsVjzAwYxdG
-```
+Please refer to [the detect-secrets Filters section](https://github.com/Yelp/detect-secrets?tab=readme-ov-file#filters) for more details on each.
