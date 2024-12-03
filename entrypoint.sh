@@ -28,6 +28,7 @@ cat /tmp/.secrets.baseline | baseline2rdf ${SKIP_AUDITED_FLAG} ${VERBOSE_FLAG} \
         -name="${INPUT_NAME:-detect-secrets}" \
         -filter-mode="${INPUT_FILTER_MODE:-added}" \
         -reporter="${INPUT_REPORTER:-github-pr-check}" \
+        -fail-level="${INPUT_FAIL_LEVEL}" \
         -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
         -level="${INPUT_LEVEL}" \
         ${INPUT_REVIEWDOG_FLAGS}
