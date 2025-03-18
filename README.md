@@ -74,7 +74,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: detect-secrets
-      uses: reviewdog/action-detect-secrets@master
+      uses: reviewdog/action-detect-secrets@bc63f9282b0cee5af6187043f8e79e80e7f6ffe3 # v0.28.3
       with:
         reporter: github-pr-review # Change reporter.
 ```
